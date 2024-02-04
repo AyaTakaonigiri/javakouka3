@@ -1,35 +1,32 @@
+//行動をランダムに決めるためjava.util.Randomをインポートする
 import java.util.Random;
-class Dragon extends character {
-    //フィールド
-    int hp;
-    int power;
-    Random random = new Random();
+
+//DragonクラスはCharacterインターフェイスを実装する
+class Dragon implements Character {
+    /************************************************フィールド************************************************/
+    //Randomクラスをインスタンス化する
+    private Random random = new Random();
+
+    //実装したCharacterのメソッドをオーバライドする
+
+    /************************************************メソッド************************************************/
+
+    //ドラゴンの攻撃のメソッド
     @Override
     public int attack() {
         return random.nextInt(10);
     }
 
+    //ドラゴンの回復のメソッド
     @Override
     public int recovery() {
-        return random.nextInt(5);
+        return random.nextInt(15);
     }
 
+    //ドラゴンが何もしない事を表示するメソッド
     @Override
     public void nothing() {
         System.out.println("ドラゴンは何もしなかった！");
-    }
-
-    //コンストラクタ
-    public Dragon(int hp, int power) {
-        this.hp = hp;
-        this.power = power;
-    }
-
-    public int getPower() {
-        return power;
-    }
-    public int getHp() {
-        return hp;
     }
 
     

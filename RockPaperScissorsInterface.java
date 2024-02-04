@@ -1,8 +1,11 @@
-interface RockPaperScissorsInterface {
+//抽象クラス
+abstract class RockPaperScissorsInterface {
+    
+    /************************************************抽象メソッド************************************************/
     //グーの時の処理
-    void rock(int num);
+    abstract void rock(int num);
     //パーの時の処理
-    void paper(int num);
+    abstract void paper(int num);
     //チョキの時の処理
-    void scissors(int num);
+    abstract void scissors(int num);
 }

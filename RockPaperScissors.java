@@ -1,86 +1,115 @@
+//ランダムな数字を扱うためjava.util.Randomをインポートする
 import java.util.Random;
 
-public class RockPaperScissors implements RockPaperScissorsInterface {
+public class RockPaperScissors extends RockPaperScissorsInterface {
 
-    int randomValue = 0;
+    /************************************************フィールド************************************************/
+    //Randomクラスをインスタンス化する
+    Random random = new Random();
+    
+    private int randomValue;    //ランダムに生成される整数を入れる変数
+
+    /************************************************メソッド************************************************/
+    //抽象クラスのRockPaperScissorsInterfaceの抽象メソッドをオーバーライドする
+    
+    //PC側がグーの時のメソッド
     @Override
     public void rock(int num) {
+        //PC側が何を出したかを表示する
+        System.out.println("僕はグーを出したよ！");
+        //入力者側がグーの時の処理
         if (num == 1) {
-            System.out.println("僕はグーを出したよ！");
             System.out.println("あいこ！");
+            System.out.println("-----------------------------------------------------------------------------------");
         }
+        //入力者側がパーの時の処理
         else if (num == 2) {
-            System.out.println("僕はグーを出したよ！");
             System.out.println("貴方の勝ち！");
+            System.out.println("-----------------------------------------------------------------------------------");
         }
+        //入力者側がチョキの時の処理
         else if (num == 3) {
-            System.out.println("僕はグーを出したよ！");
             System.out.println("貴方の負け！");
+            System.out.println("-----------------------------------------------------------------------------------");
         }
     }
+
+    //PC側がパーの時のメソッド
     @Override
     public void paper(int num) {
+        //PC側が何を出したかを表示する
+        System.out.println("僕はパーを出したよ！");
+        //入力者側がグーの時の処理
         if (num == 1) {
-            System.out.println("僕はパーを出したよ！");
             System.out.println("貴方の負け！");
+            System.out.println("-----------------------------------------------------------------------------------");
         }
+        //入力者側がパーの時の処理
         else if (num == 2) {
-            System.out.println("僕はパーを出したよ！");
             System.out.println("あいこ！");
+            System.out.println("-----------------------------------------------------------------------------------");
         }
+        //入力者側がチョキの時の処理
         else if (num == 3) {
-            System.out.println("僕はパーを出したよ！");
             System.out.println("貴方の勝ち！");
+            System.out.println("-----------------------------------------------------------------------------------");
         }
     }
+
+    //PC側がチョキの時のメソッド
     @Override
     public void scissors(int num) {
+        //PC側が何を出したかを表示する
+        System.out.println("僕はチョキを出したよ！");
+        //入力者側がグーの時の処理
         if (num == 1) {
-            System.out.println("僕はチョキを出したよ！");
             System.out.println("貴方の勝ち！");
+            System.out.println("-----------------------------------------------------------------------------------");
         }
+        //入力者側がパーの時の処理
         else if (num == 2) {
-            System.out.println("僕はチョキを出したよ！");
             System.out.println("貴方の負け！");
+            System.out.println("-----------------------------------------------------------------------------------");
         }
+        //入力者側がチョキの時の処理
         else if (num == 3) {
-            System.out.println("僕はチョキを出したよ！");
             System.out.println("あいこ！");
+            System.out.println("-----------------------------------------------------------------------------------");
         }
     }
     
-    
-    //コンストラクタ
-    public RockPaperScissors() {    
-    }
-
-    
-    Random random = new Random();
-
-    String jyankentehuda[] = {"グー", "パー", "チョキ"};
     
 
     //入力者が何を出したか（1，2，3で区別している）を引数として受け取る
     public void jyankenresult(int num) {
         
-        //ランダムに生成される０～２までの数字を入れる変数
-        int randomValue = random.nextInt(3);
+        //ランダムに生成される０～２までの数字を入れる変数を作る
+        //PC側のじゃんけんの結果に使う
+        randomValue = random.nextInt(3);
 
+        //受け取った引数が１か２か３だった場合の処理（１はグー、２はパー、３はチョキ）
         if (num == 1 || num == 2 || num == 3) {
+            //ランダムに生成された数字が０の場合PC側はグーを出したとする
             if (randomValue == 0) {
+                //PC側がグーの時のメソッドを呼び出す
                 rock(num);
             }
-            
+            //ランダムに生成された数字が１の場合PC側はパーを出したとする
             else if (randomValue == 1) {
+                //PC側がパーの時のメソッドを呼び出す
                 paper(num);
-                
             }
+            //ランダムに生成された数字が２の場合PC側はチョキを出したとする
             else if (randomValue == 2) {
+                //PC側がチョキの時のメソッドを呼び出す
                 scissors(num);
             }
         }
+
+        //受け取った引数がそれ以外の場合の処理
         else {
-            System.out.println("まともに数字も選択できない猿め");
+            System.out.println("まともに数字も選択できないの？");
+            System.out.println("-----------------------------------------------------------------------------------");
         }
     }
 }
