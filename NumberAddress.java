@@ -103,7 +103,7 @@ public class NumberAddress{
             //入力されたものが文字、あるいは全角だった処理
             catch (Exception e) {
                 //半角英数字で入力するようにする文を表示させる
-                System.out.println("文字とか入力してない？\n半角英数字で入力してね！");
+                System.out.println("文字とか入力してない？\n半角英数字の整数値で入力してね！");
                 stdIn.nextLine();
             }   
         }

@@ -137,6 +137,8 @@ class Battle {
             System.out.println("ドラゴンの攻撃！");
             //入力者に与えるダメージを計算して、Dragondamageに入れる
             Dragondamage = (DG.attack()+1) * DragonPower;
+            //勇者にどれくらいのダメージを与えるか表示
+            System.out.println("勇者に"+Dragondamage+"のダメージ");
             //入力者に与えるダメージを入力者のHPから引いて、その値を入力者のHPとする
             HeroHP = HeroHP - Dragondamage;
             //現在の入力者のHPを表示する（ダメージを与えた後のHP）
