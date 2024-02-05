@@ -1,4 +1,4 @@
-import java.util.InputMismatchException;
+ //入力を行うのでjava.util.Scannerをインポートする
 import java.util.Scanner;
 
 class GameMain {
@@ -29,10 +29,7 @@ class GameMain {
                 number = stdIn.nextInt();
             }
             //文字を入力したときの処理
-            catch (InputMismatchException e) {
-                //間違っていることを表示
-                System.out.println("指定してる数字が違うよ！馬鹿なのかな？");
-                System.out.println("ちゃんと指定されている数字を入力してね？");
+            catch (Exception e) {
                 //ここでnumberを0にしなければ２回目にこの処理が入ると１回目に指定したゲームに入ってしまうの0にしておく
                 number = 0;
                 stdIn.nextLine();
@@ -305,7 +302,7 @@ class GameMain {
             }  
 
             //指定された数値以外の整数だった場合の処理
-            else if (number > 0 && number < 100) {
+            else if (number >= 0 && number < 100) {
                 //指定された整数値を入力してもらうように表示
                 System.out.println("「指定された」数字を入力してね？");
 

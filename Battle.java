@@ -22,6 +22,8 @@ class Battle {
     private int randomValue;    //ドラゴンの行動を決めるのに使う変数
     
     /************************************************コンストラクタ************************************************/
+    
+
     Battle(int HeroHP, int HeroPower, int DragonHP, int DragonPower) {
         //入力された引数をそれぞれの変数に入れる
         //入力者のHP
